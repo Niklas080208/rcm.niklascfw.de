@@ -1,18 +1,20 @@
 # web-fusee-launcher
-Fusee Launcher, in a browser! Forked from [web-fusee-launcher](https://github.com/atlas44/web-fusee-launcher) by atlas44.
+Fusee Launcher im Browser! Geforkt von [web-fusee-launcher](https://github.com/atlas44/web-fusee-launcher) von atlas44.
 
-# Description
-This is a web port of [fusee-launcher](https://github.com/reswitched/fusee-launcher) to JavaScript using WebUSB.
+Deutscher Fork von [Niklas080208](https://github.com/Niklas080208) mit deutscher Übersetzung und Cyan-Hintergrund.
 
-It works on Linux, Android (unrooted), OSX and ChromeOS. It does NOT work on Windows because the WebUSB Windows implementation does not allow sending the required USB packet.
+# Beschreibung
+Dies ist ein Web-Port von [fusee-launcher](https://github.com/reswitched/fusee-launcher) nach JavaScript unter Verwendung von WebUSB.
 
-# Try it out
-Visit online at: https://webrcm.github.io
+Es funktioniert auf Linux, Android (ohne Root), macOS und ChromeOS. Es funktioniert NICHT unter Windows, da die WebUSB Windows-Implementierung das Senden des erforderlichen USB-Pakets nicht erlaubt.
 
-Original source code is at: [atlas44's demo](https://atlas44.s3-us-west-2.amazonaws.com/web-fusee-launcher/index.html).
+# Ausprobieren
+Online verfügbar unter: https://webrcm.github.io
 
-# Linux Info
-If you get can access denied error, create a file at `/etc/udev/rules.d/50-switch.rules` with the following contents:
+Der ursprüngliche Quellcode befindet sich bei: [atlas44's Demo](https://atlas44.s3-us-west-2.amazonaws.com/web-fusee-launcher/index.html).
+
+# Linux-Info
+Wenn du einen Zugriff verweigert-Fehler erhältst, erstelle eine Datei unter `/etc/udev/rules.d/50-switch.rules` mit folgendem Inhalt:
 
 ```
 SUBSYSTEM=="usb", ATTR{idVendor}=="0955", MODE="0664", GROUP="plugdev"

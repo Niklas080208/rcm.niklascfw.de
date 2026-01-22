@@ -76,25 +76,25 @@ let device;
 
 async function launchPayload(payload) {
 await device.open();
-logOutput(`Connected to ${device.manufacturerName} ${device.productName}`);
+logOutput(`Verbunden mit ${device.manufacturerName} ${device.productName}`);
 
 await device.claimInterface(0);
 
 const deviceID = await device.transferIn(1, 16);
-logOutput(`Device ID: ${bufferToHex(deviceID.data)}`);
+logOutput(`Geräte-ID: ${bufferToHex(deviceID.data)}`);
 
 
 const rcmPayload = createRCMPayload(intermezzo, payload);
-logOutput("Sending payload...");
+logOutput("Sende Payload...");
 const writeCount = await write(device, rcmPayload);
-logOutput("Payload sent!");
+logOutput("Payload gesendet!");
 
 if (writeCount % 2 !== 1) {
-logOutput("Switching to higher buffer...");
+logOutput("Wechsle zu höherem Buffer...");
 await device.transferOut(1, new ArrayBuffer(0x1000));
 }
 
-logOutput("Trigging vulnerability...");
+logOutput("Löse Schwachstelle aus...");
 const vulnerabilityLength = 0x7000;
 const smash = await device.controlTransferIn({
 requestType: 'standard',
@@ -107,10 +107,10 @@ index: 0x00
 
 document.getElementById("goButton").addEventListener("click", async () => {
 if (!navigator.usb) {
-logOutput("Browser does not support WebUSB! See the instructions below.");
+logOutput("Browser unterstützt WebUSB nicht! Siehe Anleitung unten.");
 return;
 }
-logOutput("Requesting access to USB device...");
+logOutput("Fordere Zugriff auf USB-Gerät an...");
 try {
 device = await navigator.usb.requestDevice({ filters: [{ vendorId: 0x0955 }] });
 } catch (e) {
@@ -119,13 +119,13 @@ return;
 }
 
 const payloadType = document.forms.mainForm.payload.value;
-logOutput(`Preparing to launch ${payloadType}...`);
+logOutput(`Bereite Start von ${payloadType} vor...`);
 
 let payload;
 if (payloadType === "uploaded") {
 const file = document.getElementById("payloadUpload").files[0];
 if (!file) {
-alert("No file selected.");
+alert("Keine Datei ausgewählt.");
 return;
 }
 payload = new Uint8Array(await readFileAsArrayBuffer(file));

@@ -3,6 +3,7 @@
 <title>RCM Web Fusee Launcher</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 <style type="text/css">
@@ -31,6 +32,7 @@ background: rgba(0,0,0,0);
 color: white;
 line-height: 1.6;
 padding: 20px;
+padding-bottom: 60px;
 }
 
 
@@ -67,7 +69,7 @@ a {
 
 /* Button Styling */
 .w3-button {
-background:;
+background: rgba(255, 255, 255, 0.1);
 border: none;
 color: white;
 padding: 15px 25px;
@@ -164,14 +166,14 @@ color: #bbbbbb;
 <body>
 
 <div id="content">
-            <iframe width="100%" height="100%" frameborder="0" src="https://webrcm.github.io/background/index.html"></iframe>
+            <iframe width="100%" height="100%" frameborder="0" src="/background/index.html"></iframe>
         </div>
 
 <!-- Header -->
 <div class="w3-container" style="margin-top:10px" id="showcase">
 <h1><b>WebUSB Fusée Launcher</b></h1>
-<h2><b>Scroll down for important info</b></h2>
-<h3-2><b>Select a payload</b></h3-2>
+<h2><b>Scroll nach unten für wichtige Informationen</b></h2>
+<h3-2><b>Wähle eine Payload</b></h3-2>
 <hr style="width:50px;border:3px solid grey" class="w3-round">
 
 <div class="form-container">
@@ -179,24 +181,24 @@ color: #bbbbbb;
     
 <p>
 <input class="w3-radio" type="radio" name="payload" id="hekate_ctcaer.bin" value="hekate_ctcaer.bin" checked>
-<label for="hekate_ctcaer.bin">CTCaer hekate (<a href="https://github.com/CTCaer/hekate/releases">v6.4.1</a>)</label>
+<label for="hekate_ctcaer.bin">CTCaer hekate (<a href="https://github.com/CTCaer/hekate/releases">v6.5.1</a>)</label>
 </p>
 <p>
 <input class="w3-radio" type="radio" name="payload" id="fusee.bin" value="fusee.bin">
-<label for="fusee.bin">Atmosphere fusee.bin (<a href="https://github.com/Atmosphere-NX/Atmosphere/releases">v1.10.0-prerelease</a>)</label>
+<label for="fusee.bin">Atmosphere fusee.bin (<a href="https://github.com/Atmosphere-NX/Atmosphere/releases">v1.10.2</a>)</label>
 </p>
 <p>
 <input class="w3-radio" type="radio" name="payload" id="uploaded" value="uploaded">
-<label for="uploaded">Custom .bin payload:</label>
+<label for="uploaded">Benutzerdefinierte .bin Payload:</label>
 <input type="file" id="payloadUpload">
 </p>
 </form>
 </div>
 
-<button id="goButton" class="w3-button w3-block sidebar w3-margin-bottom">Do the thing!</button>
+<button id="goButton" class="w3-button w3-block sidebar w3-margin-bottom">Los geht's!</button>
 
 <div id="results" class="glass">
-<h3>Result:</h3>
+<h3>Ergebnis:</h3>
 <textarea id="output"></textarea>
 </div>
 
@@ -206,50 +208,52 @@ color: #bbbbbb;
 
   <!-- Services -->
   <div class="w3-container-2" id="instructions" style="margin-top:75px">
-    <h1 class="black-title"><b>Instructions</b></h1>
+    <h1 class="black-title"><b>Anleitung</b></h1>
     <hr style="width:50px;border:3px solid grey" class="w3-round">
     <p>
       <ol>
-        <li>Put the Switch in RCM and connect it to your device. (Insert your jig into right-joycon rail and hold volume-up while powering it on)</li>
-        <li>Select one of the example payloads, or upload one.</li>
-        <li>Press 'Do the thing!'</li>
-        <li>On the consent screen that appears, select 'APX' and hit confirm. If APX does not appear, ensure your device is in RCM and connected.</li>
-        <li>If all goes well, the payload will launch!</li>
+        <li>Setze die Switch in den RCM-Modus und verbinde sie mit deinem Gerät. (Stecke dein Jig in die rechte Joy-Con-Schiene und halte die Lautstärke-hoch-Taste gedrückt, während du sie einschaltest)</li>
+        <li>Wähle eine der Beispiel-Payloads aus oder lade eine hoch.</li>
+        <li>Drücke 'Los geht's!'</li>
+        <li>Auf dem erscheinenden Zustimmungsbildschirm wähle 'APX' aus und bestätige. Wenn APX nicht erscheint, stelle sicher, dass dein Gerät im RCM-Modus ist und verbunden ist.</li>
+        <li>Wenn alles gut geht, wird die Payload gestartet!</li>
       </ol>
    </div>
   
   <!-- Designers -->
   <div class="w3-container-2" id="additional" style="margin-top:75px; ">
-    <h1 class="black-title"><b>Extra Info</b></h1>
+    <h1 class="black-title"><b>Zusätzliche Informationen</b></h1>
     <hr style="width:50px;border:3px solid grey" class="w3-round">
     <p>
       <ul>
-        <li>Continue at your own risk!</li>
-        <li>This does NOT work on Windows due to a limitation in the Chrome implementation of WebUSB (and probably other reasons!) On Windows, you can use <a href="https://switchtools.sshnuke.net">TegraRcmSmash</a></li>
-        <li>This does NOT currently work on any browser except for Chrome, Opera, Microsoft Edge, Samsung Internet and QQ Browser. This is because they don't implement WebUSB. For up to date information, visit <a href="https://caniuse.com/webusb">caniuse.com/webusb</a>.</li>
-        <li>On Linux, you might get an access denied error!
-          If you do, you can try creating a file at <code>/etc/udev/rules.d/50-switch.rules</code>
-          <div>With the following contents:</div>
+        <li>Fortfahren auf eigene Gefahr!</li>
+        <li>Dies funktioniert NICHT unter Windows aufgrund einer Einschränkung in der Chrome-Implementierung von WebUSB (und wahrscheinlich aus anderen Gründen!) Unter Windows kann man <a href="https://switchtools.sshnuke.net">TegraRcmSmash</a> verwenden</li>
+        <li>Dies funktioniert derzeit NICHT in Browsern außer Chrome, Opera, Microsoft Edge, Samsung Internet und QQ Browser. Dies liegt daran, dass sie WebUSB nicht implementieren. Für aktuelle Informationen besuche <a href="https://caniuse.com/webusb">caniuse.com/webusb</a>.</li>
+        <li>Auf Linux kann es zu einem Zugriff verweigert-Fehler kommen!
+          Wenn das passiert, kann man versuchen, eine Datei unter <code>/etc/udev/rules.d/50-switch.rules</code> zu erstellen
+          <div>Mit folgendem Inhalt:</div>
           <div><code>SUBSYSTEM=="usb", ATTR{idVendor}=="0955", MODE="0664", GROUP="plugdev"</code></div>
         </li>
-        <li>This has been tested and appears to work on Linux, macOS, Android (unrooted) and Chromebooks.</li>
+        <li>Dies wurde getestet und scheint auf Linux, macOS, Android (ohne Root) und Chromebooks zu funktionieren.</li>
       </ul>
  
   </div>
 
   <!-- Packages / Pricing Tables -->
   <div class="w3-container-2 about-text" id="about" style="margin-top:75px ; margin-bottom:20px">
-    <h1 class="black-title"><b>About</b></h1>
+    <h1 class="black-title"><b>Über</b></h1>
     <hr style="width:50px;border:3px solid grey" class="w3-round">
-    <p>Fusee Launcher ported to JavaScript using WebUSB.</p>
+    <p>Fusee Launcher nach JavaScript portiert unter Verwendung von WebUSB.</p>
     <p>
-      Source can be found on <a href="https://github.com/webrcm/webrcm.github.io">GitHub</a> under the MIT license (or by hitting view source, there is no backend!).
-      <br>Ported from <a href="https://github.com/reswitched/fusee-launcher">fusee-launcher</a>.
-      <br>UI implemented by <a href="https://github.com/CletusOnTop">CletusOnTop</a>.
-      <br>Thanks to ktemkin and ReSwitched for Fusée Gelée and a ton of other things!
-      <br>Web exploit code developed by <a href="https://github.com/atlas44/web-fusee-launcher">atlas44</a>.
+      Der Quellcode kann auf <a href="https://github.com/webrcm/webrcm.github.io">GitHub</a> unter der MIT-Lizenz gefunden werden (oder durch Anzeigen der Quelle, es gibt kein Backend!).
+      <br>Portiert von <a href="https://github.com/reswitched/fusee-launcher">fusee-launcher</a>.
+      <br>UI implementiert von <a href="https://github.com/CletusOnTop">CletusOnTop</a>.
+      <br>Vielen Dank an ktemkin und ReSwitched für Fusée Gelée und viele andere Dinge!
+      <br>Web-Exploit-Code entwickelt von <a href="https://github.com/atlas44/web-fusee-launcher">atlas44</a>.
+      <br>Fork von <a href="https://github.com/Niklas080208">Niklas080208</a>.
     </p>
 </div>
+<div style="height: 10px;"></div>
 <script>
 // Script to open and close sidebar
 function w3_open() {
