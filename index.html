@@ -89,6 +89,36 @@ padding: 8px;
 border-radius: 8px;
 }
 
+.payload-upload-input::file-selector-button {
+background: rgba(255, 255, 255, 0.1);
+border: 1px solid rgba(255, 255, 255, 0.45);
+color: white;
+padding: 6px 14px;
+border-radius: 8px;
+cursor: pointer;
+transition: background 0.3s ease;
+margin-right: 10px;
+}
+
+.payload-upload-input::file-selector-button:hover {
+background: rgba(255, 255, 255, 0.22);
+}
+
+.payload-upload-input::-webkit-file-upload-button {
+background: rgba(255, 255, 255, 0.1);
+border: 1px solid rgba(255, 255, 255, 0.45);
+color: white;
+padding: 6px 14px;
+border-radius: 8px;
+cursor: pointer;
+transition: background 0.3s ease;
+margin-right: 10px;
+}
+
+.payload-upload-input::-webkit-file-upload-button:hover {
+background: rgba(255, 255, 255, 0.22);
+}
+
 textarea {
 background: rgba(255, 255, 255, 0.1);
 color:lime;
@@ -190,7 +220,7 @@ color: #bbbbbb;
 <p>
 <input class="w3-radio" type="radio" name="payload" id="uploaded" value="uploaded">
 <label for="uploaded">Benutzerdefinierte .bin Payload:</label>
-<input type="file" id="payloadUpload">
+<input type="file" id="payloadUpload" class="payload-upload-input">
 </p>
 </form>
 </div>
